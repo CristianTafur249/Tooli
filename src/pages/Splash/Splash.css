@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
+
+.splash-phone {
+  position: relative;
+  width: 100%;
+  height: 100dvh;
+  margin: auto;
+  overflow: hidden;
+  background: radial-gradient(
+    ellipse 110% 80% at 50% 10%,
+    #2040a0 0%,
+    #0d1f5c 60%,
+    #081540 100%
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 32px 32px;
+  font-family: 'Nunito', sans-serif;
+  color: #ffffff;
+  box-sizing: border-box;
+}
+
+/* Background blobs */
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.22;
+  pointer-events: none;
+}
+.blob-1 {
+  width: 280px;
+  height: 340px;
+  background: #3a6fd8;
+  top: -60px;
+  left: -80px;
+}
+.blob-2 {
+  width: 220px;
+  height: 260px;
+  background: #4a80ef;
+  top: 80px;
+  right: -70px;
+}
+.blob-3 {
+  width: 300px;
+  height: 200px;
+  background: #5566cc;
+  bottom: 160px;
+  left: -40px;
+}
+.blob-4 {
+  width: 180px;
+  height: 220px;
+  background: #2255bb;
+  bottom: 60px;
+  right: -50px;
+}
+
+.beam {
+  position: absolute;
+  width: 90px;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    180deg,
+    rgba(130, 170, 255, 0.12) 0%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+/* Logo area */
+.logo-area {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 36px;
+  opacity: 0;
+  animation: fadeUp 0.7s 0.2s forwards;
+}
+
+/* Floating tools strip (bottom) */
+.tools-strip {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 130px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 10px;
+  padding-bottom: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.strip-tool {
+  filter: drop-shadow(0 -4px 12px rgba(0, 10, 50, 0.5));
+  animation: floatStrip 5s ease-in-out infinite;
+}
+
+/* Content */
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  opacity: 0;
+  animation: fadeUp 0.6s 0.5s forwards;
+  z-index: 10;
+}
+
+.welcome {
+  font-size: 40px;
+  font-weight: 900;
+  margin-top: 0;
+  margin-bottom: 32px;
+  text-align: center;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 20px rgba(80, 120, 255, 0.4);
+  font-family: 'Nunito', sans-serif;
+  color: #ffffff;
+}
+
+.btn-start {
+  width: 100%;
+  padding: 20px 0;
+  border: none;
+  border-radius: 20px;
+  background: rgba(130, 165, 255, 0.28);
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  box-shadow:
+    0 0 0 1px rgba(180, 210, 255, 0.25) inset,
+    0 4px 30px rgba(80, 120, 255, 0.35),
+    0 1px 0 rgba(255, 255, 255, 0.12) inset;
+  color: #ffffff;
+  font-family: 'Nunito', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition:
+    transform 0.15s,
+    box-shadow 0.15s,
+    background 0.15s;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-start::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.18) 0%,
+    transparent 60%
+  );
+  border-radius: inherit;
+}
+
+.btn-start:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 0 1px rgba(180, 210, 255, 0.35) inset,
+    0 8px 40px rgba(80, 130, 255, 0.5),
+    0 1px 0 rgba(255, 255, 255, 0.18) inset;
+  background: rgba(150, 185, 255, 0.35);
+}
+
+.btn-start:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 2px 16px rgba(80, 120, 255, 0.3);
+}
+
+.register-row {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #c0ccee;
+  text-align: center;
+}
+
+.register-row a {
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.register-row a:hover {
+  opacity: 0.75;
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 3D floating tool animations */
+.tool-icon {
+  position: absolute;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 30, 0.55));
+  animation: float 4s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(2deg);
+  }
+}
+
+/* Float animations with different delays to feel natural */
+.tool-hammer { animation-delay: 0s; }
+.tool-sprocket1 { animation-delay: -0.8s; }
+.tool-sprocket2 { animation-delay: -1.6s; }
+
+/* Keep saw static-rotated or animated slightly */
+.tool-saw {
+  animation: floatSaw 4s ease-in-out infinite;
+  animation-delay: -2.4s;
+}
+@keyframes floatSaw {
+  0%, 100% {
+    transform: rotate(120deg) scaleY(-1) translateY(0);
+  }
+  50% {
+    transform: rotate(122deg) scaleY(-1) translateY(-6px);
+  }
+}
+
+.tool-screwdriver {
+  animation: floatScrewdriver 4s ease-in-out infinite;
+  animation-delay: -3.2s;
+}
+@keyframes floatScrewdriver {
+  0%, 100% {
+    transform: rotate(30deg) translateY(0);
+  }
+  50% {
+    transform: rotate(32deg) translateY(-6px);
+  }
+}
+
+/* Strip float delays */
+.tool-pliers { animation-delay: -0.8s; }
+.tool-caliper { animation-delay: -1.6s; }
+.tool-wrench { animation-delay: -2.4s; }
+.tool-clamp { animation-delay: -3.2s; }
+.tool-drill { animation-delay: -4s; }
+.tool-handsaw { animation-delay: -4.8s; }
+
+@keyframes floatStrip {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
